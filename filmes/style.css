@@ -1,0 +1,242 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lexend Deca", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+body{
+  background-color: #000000;
+} 
+
+ /* .imagem {
+  position: absolute;
+  top: 0;
+  left: 19px;
+  width: 265px;
+}
+
+.img {
+  max-width: 100%;
+  height: auto;
+} */
+
+
+/*HEADER E MENU*/
+header{
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 140px;
+  transition: 0.5s ease;
+  position: fixed;
+}
+
+header .logo{
+  color: #ffffff;
+  font-family: "Paytone One";
+  text-shadow: 2px 2px 5px rgb(255, 0, 0);
+  font-size: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+ 
+header .navigation{
+  position: relative;
+  /* display: none; */
+}
+
+header .navigation.show {
+  display: flex; 
+}
+
+header .navigation .navigation-items a{
+  position: relative;
+  color: #ffffff;
+  font-size: 1em;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 30px;
+  transition: 0.3s ease;
+  font-family: "Lilita One" , sans-serif;
+}
+
+header .navigation .navigation-items a:before{
+  content: '';
+  position: absolute;
+  background: #ff0000;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:hover:before{
+  width: 100%;
+}
+
+@media (max-width: 1040px){
+  header{
+    padding: 12px 20px;
+  }
+
+  section {
+    padding: 100px 20px;
+  }
+
+  header .navigation{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(1, 1, 1, 0.5);
+  }
+
+  header .navigation .navigation-items a{
+    color: #ffffff;
+    font-size: 1.2em;
+    margin: 20px;
+  }
+
+  header .navigation .navigation-items{
+    background: rgba(255, 255, 255, 0.062); /* Cor de fundo com opacidade */
+    backdrop-filter: blur(10px); /* Aplica o desfoque */
+    width: 300px;
+    max-width: 600px;
+    margin: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(1 1 1 / 20%);
+  }
+
+  .menu{
+    background: url(/icones_header/bars-solid.svg)no-repeat;
+    background-size: 30px;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    color: rgb(255, 255, 255);
+  }
+
+  .menu.active{
+    z-index: 999;
+    background: url(/icones_header/circle-xmark-regular.svg)no-repeat;
+    background-size: 25px;
+    background-position: center;
+    transition: 0.3s ease;
+  }
+}
+
+header .navigation{
+  text-align: center;
+}
+
+ @media (max-width: 1040px){
+  header{
+      padding: 12px 20px;
+  }
+
+  section{
+      padding: 100px 20px;
+  }
+
+  .home .media-icons{
+      right: 15px;
+  }
+
+  header .navigation{
+      display: none;
+  }
+}  
+
+/*GALERIA (IMAGENS)*/
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  max-width: 1200px; /* Define uma largura máxima para a galeria */
+  padding: 10px; /*Adiciona padding opcional */
+  margin: 0 auto;
+}
+
+.gallery-item {
+  position: relative; /* Permite o posicionamento da legenda */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  height: 350px; /* Define uma altura fixa */
+  border-radius: 5px 5px 30px 0px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%; /* Faz com que a imagem preencha toda a altura do item */
+  object-fit: cover; /* Corta a imagem para manter a proporção */
+  display: block;
+  transition: transform 0.2s;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo com opacidade */
+  opacity: 0; /* Invisível por padrão */
+  transition: opacity 0.5s; /* Transição suave */
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+}
+
+.overlay-text {
+  color: white; /* Cor do texto */
+  font-size: 20px; /* Tamanho da fonte */
+  position: absolute; /* Legenda sobreponha a imagem */
+  bottom: 0; 
+  left: 0;
+  right: 100px;
+  padding: 20px; 
+  text-align: left;
+  transition: opacity 0.5s; 
+  font-family: "Paytone One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  border-radius: 8px;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1); /* Zoom ao passar o mouse */
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1; /* Torna o overlay visível ao passar o mouse */
+}
+
+.gallery-item img:hover {
+  transform: scale(1.03);
+  filter: blur(5px); 
+}
+
+
+
+
